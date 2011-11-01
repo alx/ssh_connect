@@ -25,4 +25,4 @@ else
 end
 
 puts "Connecting to #{servers[server_id]["login"]}@#{servers[server_id]["ip"]} port #{servers[server_id]["port"] || 22}"
-exec "ssh #{servers[server_id][:login]}@#{servers[server_id][:ip]} -p #{servers[server_id][:port] || 22}"
+exec "ssh #{servers[server_id]["login"]}@#{servers[server_id]["ip"]} -p #{servers[server_id]["port"] || 22}"
