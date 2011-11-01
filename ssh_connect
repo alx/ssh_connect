@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby -wKU
+require "yaml"
+
+server_config = File.expand_path("~/.ssh_connect")
+
+unless File.exist? server_config
+  puts "[Error] #{server_config} server config doesn't exist, please copy the sample one."
+  exit
+end
+
+servers_yaml = YAML::load( File.open( server_config ) )
+servers = servers_yaml["servers"]
+
+# Read from input
+if ARGV[0].nil?
+  index = 0
+   servers.each do |server|
+     puts "[#{index}] #{server["alias"]}"
+     index += 1
+   end
+   server_id = gets.to_i
+else
+  # Read from command line
+  server_id = ARGV[0].to_i
+end
+
+puts "Connecting to #{servers[server_id]["login"]}@#{servers[server_id]["ip"]} port #{servers[server_id]["port"] || 22}"
+exec "ssh #{servers[server_id][:login]}@#{servers[server_id][:ip]} -p #{servers[server_id][:port] || 22}"

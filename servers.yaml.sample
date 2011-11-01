@@ -1,0 +1,12 @@
+---
+servers:
+  - alias:  easy to remember server name
+    ip:     domainname-or-ip.tld
+    login:  user_login
+    port:   2222
+
+  - alias:  another server
+    ip:     88.191.126.74
+    login:  another_login
+    # if no port defined, it'll connect on port 22
+
