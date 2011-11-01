@@ -3,7 +3,7 @@ used ssh servers.
 
 # Usage
 
-    git clone git@
+    git clone git://github.com/alx/ssh_connect.git
     cp ssh_connect ~/bin
     cp servers.yaml.example ~/.ssh_connect
     ssh_connect
